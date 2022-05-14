@@ -4,20 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StorageService } from './storage.service';
-import { TruncatePipe } from './truncate.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TruncatePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [StorageService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
