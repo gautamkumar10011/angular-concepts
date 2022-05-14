@@ -1,1 +1,5 @@
-<h1>Hello World !! I am starting Angular</h1>
+<h1>{{title | uppercase}} Hello World !! I am starting Angular</h1>
+<button (click)="handleEvent()">Click Me</button>
+<button (keydown)="handleEvent()">KeyDown</button>
+<input (keydown)="handleEvent()" [(ngModel)]="title" placeholder="Enter Somthing" />
+<h1>{{'Gautam Kumar is sleeping' | truncate}}</h1>
