@@ -1,2 +1,19 @@
 <h1>{{title }}</h1>
+<input placeholder="name" [(ngModel)]="userObj.name">
+<input placeholder="address" [(ngModel)]="userObj.address">
+<input placeholder="phone" [(ngModel)]="userObj.phone">
+
 <button (click)="handleEvent()">Click Me</button>
+<app-user [user]="userObj" (userEvent)="handleMyEvent($event)"></app-user> <!--  Its Child component -->
+
+<!-- <ul *ngFor="let item of posts; let i=index"> -->
+<!-- <li>{{i}}</li> -->
+<!-- <ul *ngFor="let item of (posts | async) ; let i=index"> -->
+<!-- <ul *ngFor="let item of posts | async"> -->
+<ul *ngFor="let item of posts | async">
+
+    <li>{{item.id}}</li>
+    <li>{{item.userId}}</li>
+    <li>{{item.title}}</li>
+    <li>{{item.body}}</li>
+</ul>
