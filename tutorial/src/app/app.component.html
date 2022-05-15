@@ -3,17 +3,23 @@
 <input placeholder="address" [(ngModel)]="userObj.address">
 <input placeholder="phone" [(ngModel)]="userObj.phone">
 
-<button (click)="handleEvent()">Click Me</button>
-<app-user [user]="userObj" (userEvent)="handleMyEvent($event)"></app-user> <!--  Its Child component -->
+<nav>
+    <div>
+        <a routerLink="/first">First Clicked</a>
+    </div>
+    <div>
+        <a routerLink="/second">Second Clicked</a>
 
-<!-- <ul *ngFor="let item of posts; let i=index"> -->
-<!-- <li>{{i}}</li> -->
-<!-- <ul *ngFor="let item of (posts | async) ; let i=index"> -->
-<!-- <ul *ngFor="let item of posts | async"> -->
-<ul *ngFor="let item of posts | async">
+    </div>
+    <div>
+        <a routerLink="/third">Third Clicked</a>
+    </div>
+    <div>
+        <a routerLink="/forth">Fourth Clicked</a>
+    </div>
+</nav>
+<button (click)="goToRoute()"> Go To Second</button>
 
-    <li>{{item.id}}</li>
-    <li>{{item.userId}}</li>
-    <li>{{item.title}}</li>
-    <li>{{item.body}}</li>
-</ul>
+<input type="text" [formControl]="testProps" name="testProps" placeholder="GautamSIngh">
+{{testProps.value}}
+<router-outlet></router-outlet>

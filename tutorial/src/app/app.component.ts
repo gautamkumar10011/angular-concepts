@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from './service/http.service';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 
@@ -10,12 +11,20 @@ import { HttpService } from './service/http.service';
 })
 export class AppComponent implements OnInit {
   title = ' Angular tutorial';
-  handleEvent() {
-    this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1').subscribe((response) => {
-      console.log(response);
-    })
+  // handleEvent() {
+  //   this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1').subscribe((response) => {
+  //     console.log(response);
+  //   })
+  // }
+  constructor(private router: Router) { }
+
+  goToRoute(route: string = "/second"): void {
+    this.router.navigateByUrl(route).then(() => {
+      // checking the active url
+      console.log(this.router.url);
+    });
   }
-  constructor(private httpService: HttpService) { }
+
   userObj = {
     name: "Coins",
     address: "Raipur",
@@ -27,15 +36,17 @@ export class AppComponent implements OnInit {
   }
 
   // posts: any = this.httpService.getRequest('https://jsonplaceholder.typicode.com/posts').subscribe()   // normal http calling
-  posts: any = this.httpService.getRequest('https://jsonplaceholder.typicode.com/posts')    // async http calling 
+  // posts: any = this.httpService.getRequest('https://jsonplaceholder.typicode.com/posts')    // async http calling 
 
-  getFakePosts(): any {
-    this.httpService.getRequest('https://jsonplaceholder.typicode.com/posts').subscribe((response) => {
-      this.posts = response;
-    })
-  }
+  // getFakePosts(): any {
+  //   this.httpService.getRequest('https://jsonplaceholder.typicode.com/posts').subscribe((response) => {
+  //     this.posts = response;
+  //   })
+  // }
 
   ngOnInit(): void {
     // this.getFakePosts();
   }
+
+  testProps = new FormControl('');
 }
